@@ -1,6 +1,6 @@
 package com.company.rsvp.controller;
 
-import com.company.rsvp.RsvpDao;
+import com.company.rsvp.dao.RsvpDao;
 import com.company.rsvp.model.Rsvp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

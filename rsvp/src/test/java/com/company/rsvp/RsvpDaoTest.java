@@ -1,5 +1,6 @@
 package com.company.rsvp;
 
+import com.company.rsvp.dao.RsvpDao;
 import com.company.rsvp.model.Rsvp;
 import org.junit.Before;
 import org.junit.Test;

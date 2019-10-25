@@ -1,6 +1,6 @@
 package com.company.rsvp.controller;
 
-import com.company.rsvp.RsvpDao;
+import com.company.rsvp.dao.RsvpDao;
 import com.company.rsvp.model.Rsvp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
