@@ -47,8 +47,8 @@ public class Rsvp {
         Rsvp rsvp = (Rsvp) o;
         return rsvpId == rsvp.rsvpId &&
                 totalAttending == rsvp.totalAttending &&
-                guestName.equals(rsvp.guestName) &&
-                phoneNumber.equals(rsvp.phoneNumber);
+                Objects.equals(guestName, rsvp.guestName) &&
+                Objects.equals(phoneNumber, rsvp.phoneNumber);
     }
 
     @Override
