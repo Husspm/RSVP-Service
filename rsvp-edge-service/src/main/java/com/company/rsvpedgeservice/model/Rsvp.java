@@ -1,11 +1,14 @@
 package com.company.rsvpedgeservice.model;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 public class Rsvp {
     private int rsvpId;
+    @NotEmpty(message = "Must enter a name in order to RSVP")
     private String guestName;
     private int totalAttending;
+    @NotEmpty(message = "Please supply a phone number so we can contact you if needed")
     private String phoneNumber;
 
     public int getRsvpId() {

@@ -93,4 +93,14 @@ public class RsvpControllerTest {
                 .andExpect(status().isNotAcceptable());
     }
 
+    @Test
+    public void test_SaveRsvp_WillFailIfPropertiesIsMissing() throws Exception {
+
+        Rsvp rsvp = new Rsvp();
+
+        mockMvc.perform(post("/rsvps"))
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+    }
+
 }
