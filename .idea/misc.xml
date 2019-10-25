@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/rsvp-edge-service/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/rsvp/pom.xml" />
       </list>
     </option>
   </component>

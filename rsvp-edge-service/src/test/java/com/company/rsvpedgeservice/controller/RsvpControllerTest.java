@@ -12,8 +12,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.longThat;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -33,22 +38,23 @@ public class RsvpControllerTest {
         return new ObjectMapper().writeValueAsString(obj);
     }
 
-    private static Rsvp valid = new Rsvp();
+    private static Rsvp valid, validOutput;
 
     static {
+        valid = new Rsvp();
         valid.setTotalAttending(4);
         valid.setPhoneNumber("1112223333");
         valid.setGuestName("Person");
-    }
 
-    @Test
-    public void test_saveRsvp_WillPassIfNumberIsValid() throws Exception {
-
-        Rsvp validOutput = new Rsvp();
+        validOutput = new Rsvp();
         validOutput.setTotalAttending(4);
         validOutput.setPhoneNumber("1112223333");
         validOutput.setGuestName("Person");
         validOutput.setRsvpId(1);
+    }
+
+    @Test
+    public void test_saveRsvp_WillPassIfNumberIsValid() throws Exception {
 
         String input = writeToJson(valid);
         String output = writeToJson(validOutput);
@@ -98,9 +104,23 @@ public class RsvpControllerTest {
 
         Rsvp rsvp = new Rsvp();
 
-        mockMvc.perform(post("/rsvps"))
+        mockMvc.perform(post("/rsvps")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(writeToJson(rsvp)))
                 .andDo(print())
                 .andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    public void test_getAllRsvps_WillReturnAListOfRSVP() throws Exception {
+        List<Rsvp> all = new ArrayList<>();
+        all.add(validOutput);
+
+        mockMvc.perform(get("/rsvps"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json(writeToJson(all)));
+
     }
 
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RSVP-Service.iml" filepath="$PROJECT_DIR$/.idea/RSVP-Service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rsvp/rsvp.iml" filepath="$PROJECT_DIR$/rsvp/rsvp.iml" />
       <module fileurl="file://$PROJECT_DIR$/rsvp-edge-service/rsvp-edge-service.iml" filepath="$PROJECT_DIR$/rsvp-edge-service/rsvp-edge-service.iml" />
     </modules>
   </component>

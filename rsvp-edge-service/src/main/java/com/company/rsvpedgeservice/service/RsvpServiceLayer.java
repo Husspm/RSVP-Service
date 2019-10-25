@@ -5,6 +5,8 @@ import com.company.rsvpedgeservice.util.feign.RsvpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class RsvpServiceLayer {
     @Autowired
@@ -22,4 +24,7 @@ public class RsvpServiceLayer {
         }
     }
 
+    public List<Rsvp> getAllRsvp() {
+        return client.getAll();
+    }
 }
